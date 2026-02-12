@@ -53,7 +53,7 @@ export default function Home() {
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-red-100 sm:text-xl">
             For <strong className="text-white">4 years</strong>, our neighborhood has gathered every Wednesday
             at Carlson Park in Culver City for amazing pizza. Culver City Code Enforcement
-            says they can&apos;t sell within 300ft of public parks — and now we need the
+            says vendors can&apos;t sell within 300ft of public parks — and now we need the
             city council to change the law.
           </p>
         </div>
@@ -64,7 +64,7 @@ export default function Home() {
         <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">What Happened</h2>
         <div className="mt-8 space-y-5 text-lg leading-relaxed text-gray-700">
           <p>
-            Every Wednesday, a beloved local pizza vendor has set up near Carlson Park,
+            Every Wednesday, <a href="https://windsorhillspizza.com/" target="_blank" rel="noopener noreferrer" className="underline font-semibold hover:text-gray-900">Windsor Hills Pizza</a> has set up near Carlson Park,
             bringing our community together over great food and good company. Families,
             kids, neighbors — it&apos;s become a cornerstone of our neighborhood for
             four years.
