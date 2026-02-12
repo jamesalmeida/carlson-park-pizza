@@ -52,8 +52,9 @@ export default function Home() {
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-red-100 sm:text-xl">
             For <strong className="text-white">4 years</strong>, our neighborhood has gathered every Wednesday
-            at Carlson Park in Culver City for amazing pizza. Now a code violation
-            threatens to end this beloved tradition — and we need your help.
+            at Carlson Park in Culver City for amazing pizza. Culver City Code Enforcement
+            says they can&apos;t sell within 300ft of public parks — and now we need the
+            city council to change the law.
           </p>
         </div>
       </section>
@@ -63,54 +64,89 @@ export default function Home() {
         <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">What Happened</h2>
         <div className="mt-8 space-y-5 text-lg leading-relaxed text-gray-700">
           <p>
-            Every Wednesday, a local pizza vendor has set up at Carlson Park, bringing our
-            community together over great food and good company. Families, kids, neighbors —
-            it&apos;s become a cornerstone of our neighborhood.
+            Every Wednesday, a beloved local pizza vendor has set up near Carlson Park,
+            bringing our community together over great food and good company. Families,
+            kids, neighbors — it&apos;s become a cornerstone of our neighborhood for
+            four years.
           </p>
           <p>
-            After <strong>four years</strong> of serving the community, they were recently
-            cited for a code violation, and can no longer operate. Just like that, a
-            four-year neighborhood tradition is at risk of disappearing.
+            <strong>Culver City Code Enforcement</strong> recently informed them that they
+            can&apos;t sell within <strong>300 feet of a public park</strong>. After four
+            years of serving this community, they&apos;re suddenly unable to operate.
           </p>
           <p>
-            But we&apos;re not giving up. The neighborhood is coming together to ask the
-            Culver City Council to grant an exception and let our pizza Wednesdays continue.
+            The good news: after going to the council this Monday, Council Member{" "}
+            <strong>Dan O&apos;Brien</strong> requested to put the situation on the agenda
+            for the next meeting, where the council will vote on whether to adjust this
+            law to allow them back at the park.
           </p>
         </div>
       </section>
 
-      {/* What We Need */}
+      {/* Current Situation */}
       <section className="bg-white">
         <div className="mx-auto max-w-3xl px-6 py-16 sm:py-20">
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">How You Can Help</h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-3">
-            {[
-              {
-                icon: "✍️",
-                title: "Sign Up",
-                desc: "Add your email below so we can coordinate and keep you updated.",
-              },
-              {
-                icon: "📣",
-                title: "Spread the Word",
-                desc: "Share this page with your Carlson Park neighbors.",
-              },
-              {
-                icon: "🏛️",
-                title: "Show Up",
-                desc: "Attend the next city council meeting to show community support.",
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-xl border border-gray-100 bg-amber-50/50 p-6 text-center"
-              >
-                <div className="text-3xl">{item.icon}</div>
-                <h3 className="mt-3 text-lg font-semibold">{item.title}</h3>
-                <p className="mt-2 text-sm text-gray-600">{item.desc}</p>
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Where Things Stand</h2>
+          <div className="mt-8 space-y-4">
+            <div className="flex items-start gap-4 rounded-xl border border-green-200 bg-green-50 p-5">
+              <span className="text-2xl">✅</span>
+              <div>
+                <h3 className="font-semibold text-green-900">Council Member Dan O&apos;Brien is on our side</h3>
+                <p className="mt-1 text-green-800">He&apos;s requested this be put on the agenda for the next city council meeting.</p>
               </div>
-            ))}
+            </div>
+            <div className="flex items-start gap-4 rounded-xl border border-amber-200 bg-amber-50 p-5">
+              <span className="text-2xl">🗳️</span>
+              <div>
+                <h3 className="font-semibold text-amber-900">Upcoming vote</h3>
+                <p className="mt-1 text-amber-800">The council will vote on adjusting the 300ft law to allow vendors back at the park.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4 rounded-xl border border-blue-200 bg-blue-50 p-5">
+              <span className="text-2xl">📍</span>
+              <div>
+                <h3 className="font-semibold text-blue-900">Temporary location needed</h3>
+                <p className="mt-1 text-blue-800">
+                  In the meantime, they need a nearby location to set up — ideally as close to
+                  the park as legally possible. If you can host, your support (and pizza!) will
+                  be greatly appreciated.
+                </p>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* How You Can Help */}
+      <section className="mx-auto max-w-3xl px-6 py-16 sm:py-20">
+        <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">How You Can Help</h2>
+        <div className="mt-8 grid gap-6 sm:grid-cols-3">
+          {[
+            {
+              icon: "✍️",
+              title: "Sign Up Below",
+              desc: "Add your email so we can keep you updated on the council vote and coordinate our efforts.",
+            },
+            {
+              icon: "🏛️",
+              title: "Attend the Meeting",
+              desc: "Show up at the next city council meeting. Numbers matter — the council needs to see community support.",
+            },
+            {
+              icon: "📣",
+              title: "Spread the Word",
+              desc: "Share this page with Carlson Park neighbors. The more voices, the stronger our case.",
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="rounded-xl border border-gray-100 bg-amber-50/50 p-6 text-center"
+            >
+              <div className="text-3xl">{item.icon}</div>
+              <h3 className="mt-3 text-lg font-semibold">{item.title}</h3>
+              <p className="mt-2 text-sm text-gray-600">{item.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -121,8 +157,8 @@ export default function Home() {
             Join the Fight
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Sign up and we&apos;ll contact you with details about getting this on the city
-            council agenda.
+            Sign up and we&apos;ll contact you with details about the next council meeting
+            and how to make your voice heard.
           </p>
 
           {status === "success" ? (
