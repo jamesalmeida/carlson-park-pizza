@@ -20,7 +20,14 @@ export async function GET() {
           textAlign: "center",
         }}
       >
-        <div style={{ fontSize: 100, marginBottom: 20 }}>🍕</div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://carlson-park-pizza.vercel.app/hero-logo.png"
+          alt=""
+          width={160}
+          height={160}
+          style={{ marginBottom: 20, borderRadius: 20, objectFit: "contain" }}
+        />
         <div
           style={{
             fontSize: 64,
