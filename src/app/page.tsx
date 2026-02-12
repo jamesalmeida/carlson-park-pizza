@@ -44,7 +44,7 @@ export default function Home() {
           }} />
         </div>
         <div className="relative mx-auto max-w-3xl px-6 py-20 text-center sm:py-28">
-          <img src="/hero-logo.jpg" alt="Windsor Hills Pizza" className="mx-auto mb-6 w-36 h-36 rounded-2xl object-contain drop-shadow-lg" />
+          <img src="/hero-logo.png" alt="Windsor Hills Pizza" className="mx-auto mb-6 w-36 h-36 rounded-2xl object-contain drop-shadow-lg" />
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
             Save Carlson Park
             <br />
@@ -88,7 +88,7 @@ export default function Home() {
         <div className="mx-auto max-w-3xl px-6 py-16 sm:py-20">
           <div className="flex flex-col items-center sm:flex-row sm:items-start gap-8">
             <img
-              src="/logo.jpg"
+              src="/logo.png"
               alt="Windsor Hills Pizza logo"
               className="w-32 h-32 rounded-2xl object-contain shadow-md flex-shrink-0"
             />
