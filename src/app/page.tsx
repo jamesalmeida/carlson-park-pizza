@@ -167,7 +167,7 @@ export default function Home() {
             <div className="flex items-start gap-4 rounded-xl border border-green-200 bg-green-50 p-5">
               <span className="text-2xl">✅</span>
               <div>
-                <h3 className="font-semibold text-green-900">Council Member Dan O&apos;Brien is on our side</h3>
+                <h3 className="font-semibold text-green-900">Council Member Dan O&apos;Brien</h3>
                 <p className="mt-1 text-green-800">He&apos;s requested this be put on the agenda for the next city council meeting.</p>
               </div>
             </div>
