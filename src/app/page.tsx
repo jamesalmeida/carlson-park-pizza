@@ -83,6 +83,43 @@ export default function Home() {
         </div>
       </section>
 
+      {/* About Windsor Hills Pizza */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-3xl px-6 py-16 sm:py-20">
+          <div className="flex flex-col items-center sm:flex-row sm:items-start gap-8">
+            <img
+              src="/logo.jpg"
+              alt="Windsor Hills Pizza logo"
+              className="w-32 h-32 rounded-2xl object-contain shadow-md flex-shrink-0"
+            />
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+                About <a href="https://windsorhillspizza.com/" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline">Windsor Hills Pizza</a>
+              </h2>
+              <div className="mt-4 space-y-4 text-lg leading-relaxed text-gray-700">
+                <p>
+                  Windsor Hills Pizza is run by two brothers, <strong>Kyle and Luke</strong>,
+                  the oldest of seven kids in their family. Homeschooled together, their dad
+                  taught them to think outside the box and be entrepreneurial. Their mom taught
+                  them to treat others the way they&apos;d want to be treated and how to be a
+                  great host.
+                </p>
+                <p>
+                  They realized early on that they&apos;re serving up more than just food —
+                  they&apos;re creating an experience that leads to wonderful memories. Their
+                  mission is to bring people together, especially families, who are the
+                  cornerstones of a strong community.
+                </p>
+                <p className="italic text-gray-600">
+                  &ldquo;We are more than just a mobile pizza cart. We strive to create an
+                  experience that will bring your family and friends closer together!&rdquo;
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Current Situation */}
       <section className="bg-white">
         <div className="mx-auto max-w-3xl px-6 py-16 sm:py-20">
