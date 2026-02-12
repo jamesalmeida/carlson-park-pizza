@@ -44,7 +44,7 @@ export default function Home() {
           }} />
         </div>
         <div className="relative mx-auto max-w-3xl px-6 py-20 text-center sm:py-28">
-          <div className="mb-6 text-6xl">🍕</div>
+          <img src="/hero-logo.jpg" alt="Windsor Hills Pizza" className="mx-auto mb-6 w-36 h-36 rounded-2xl object-contain drop-shadow-lg" />
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
             Save Carlson Park
             <br />
