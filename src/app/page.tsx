@@ -1,15 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function Home() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
+  const heroSubmittedRef = useRef(false);
+  const [heroSubmitted, setHeroSubmitted] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus("loading");
+    setHeroSubmitted(heroSubmittedRef.current);
+    heroSubmittedRef.current = false;
 
     try {
       const res = await fetch("/api/signup", {
@@ -56,6 +60,34 @@ export default function Home() {
             says vendors can&apos;t sell within 300ft of public parks — and now we need the
             city council to change the law.
           </p>
+
+          {/* Hero email signup */}
+          {status === "success" && heroSubmitted ? (
+            <div className="mx-auto mt-8 max-w-md rounded-xl bg-white/15 backdrop-blur-sm border border-white/20 p-4">
+              <p className="text-lg font-semibold text-white">🎉 {message}</p>
+            </div>
+          ) : (
+            <form onSubmit={(e) => { heroSubmittedRef.current = true; handleSubmit(e); }} className="mx-auto mt-8 flex max-w-lg flex-col gap-3 sm:flex-row">
+              <input
+                type="email"
+                required
+                placeholder="your@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 rounded-xl border border-white/30 bg-white/15 backdrop-blur-sm px-5 py-3.5 text-base text-white shadow-sm placeholder:text-red-200 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/30"
+              />
+              <button
+                type="submit"
+                disabled={status === "loading"}
+                className="rounded-xl bg-white px-8 py-3.5 text-base font-semibold text-red-600 shadow-sm transition hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-white/50 disabled:opacity-60"
+              >
+                {status === "loading" ? "Signing up..." : "Count Me In"}
+              </button>
+            </form>
+          )}
+          {status === "error" && heroSubmitted && (
+            <p className="mt-3 text-sm text-red-200">{message}</p>
+          )}
         </div>
       </section>
 
@@ -80,6 +112,13 @@ export default function Home() {
             for the next meeting, where the council will vote on whether to adjust this
             law to allow them back at the park.
           </p>
+        </div>
+        <div className="mt-10 overflow-hidden rounded-2xl shadow-lg">
+          <img
+            src="/windsor%20hills%20pizza%20truck.webp"
+            alt="Windsor Hills Pizza truck at Carlson Park"
+            className="w-full object-cover"
+          />
         </div>
       </section>
 
