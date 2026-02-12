@@ -1,23 +1,10 @@
 import { NextResponse } from "next/server";
-import { promises as fs } from "fs";
-import path from "path";
+import { createClient } from "@supabase/supabase-js";
 
-// Simple file-based email storage (works on Vercel with /tmp)
-// For production, swap to a database or email service
-const DATA_FILE = path.join("/tmp", "signups.json");
-
-async function getSignups(): Promise<string[]> {
-  try {
-    const data = await fs.readFile(DATA_FILE, "utf-8");
-    return JSON.parse(data);
-  } catch {
-    return [];
-  }
-}
-
-async function saveSignups(emails: string[]) {
-  await fs.writeFile(DATA_FILE, JSON.stringify(emails, null, 2));
-}
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
 
 export async function POST(request: Request) {
   try {
@@ -28,14 +15,16 @@ export async function POST(request: Request) {
     }
 
     const normalized = email.trim().toLowerCase();
-    const signups = await getSignups();
 
-    if (signups.includes(normalized)) {
-      return NextResponse.json({ message: "You're already signed up! We'll be in touch." });
+    const { error } = await supabase.from("signups").insert({ email: normalized });
+
+    if (error) {
+      if (error.code === "23505") {
+        return NextResponse.json({ message: "You're already signed up! We'll be in touch." });
+      }
+      console.error("Supabase error:", error);
+      return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
     }
-
-    signups.push(normalized);
-    await saveSignups(signups);
 
     return NextResponse.json({ message: "Thanks for signing up! We'll contact you with next steps." });
   } catch {
@@ -44,6 +33,14 @@ export async function POST(request: Request) {
 }
 
 export async function GET() {
-  const signups = await getSignups();
-  return NextResponse.json({ count: signups.length, emails: signups });
+  const { data, error } = await supabase
+    .from("signups")
+    .select("email, created_at")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    return NextResponse.json({ error: "Failed to fetch signups" }, { status: 500 });
+  }
+
+  return NextResponse.json({ count: data.length, emails: data });
 }
